@@ -1,0 +1,22 @@
+fullnameOverride: crunchy-postgres
+
+postgresVersion: 15
+openshift: true
+
+instances:
+  name: prod
+  replicas: 3
+  dataVolumeClaimSpec:
+    storage: 10Gi
+    storageClassName: netapp-block-standard
+
+pgBackRest:
+  repo1:
+    enabled: true
+
+proxy:
+  pgBouncer:
+    replicas: 3
+
+pgmonitor:
+  enabled: true
